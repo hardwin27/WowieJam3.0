@@ -40,8 +40,11 @@ public class AstralProjection : MonoBehaviour
         objectBody = interactionArea.bodyObject;
         if (objectBody != null)
         {
-            objectBody.GetComponent<Human>().enabled = true;
-            Destroy(gameObject);
+            if (objectBody.GetComponent<Body>().GetIsAlive())
+            {
+                objectBody.GetComponent<Body>().enabled = true;
+                Destroy(gameObject);
+            }
         }
     }
 }

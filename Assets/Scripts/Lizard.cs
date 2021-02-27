@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lizard : MonoBehaviour
+public class Lizard : Body
 {
-    [SerializeField]
-    bool isControlled;
-
     [SerializeField]
     float moveSpeed;
     float moveDirection;
@@ -22,17 +19,20 @@ public class Lizard : MonoBehaviour
     GameObject groundTriggerObject;
     GroundTrigger groundTrigger;
 
-    Rigidbody2D body;
-
-    void Start()
+    protected override void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        base.Start();
         groundTrigger = groundTriggerObject.GetComponent<GroundTrigger>();
         enabled = isControlled;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            GoAstral();
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             jumpPressed = true;
@@ -68,4 +68,18 @@ public class Lizard : MonoBehaviour
 
         body.velocity = new Vector2(moveDirection * moveSpeed, body.velocity.y);  
     }
+
+    protected override void GoAstral()
+    {
+        base.GoAstral();
+    }
+
+    // protected override void SetIsAlive()
+    // {
+    //     base.SetIsAlive();
+    // }
+    // protected override bool GetIsAlive()
+    // {
+    //     return base.SetIsAlive();
+    // }
 }

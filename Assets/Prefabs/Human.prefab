@@ -161,13 +161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbaa2cdf8529d4db448a47c24d768d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlled: 1
+  isControlled: 0
+  astralProjectionPrefabs: {fileID: 2373505785327417506, guid: d211f52b0257f20458d939453737bc07,
+    type: 3}
   moveSpeed: 5
   jumpVelocity: 3
   cayoteJumpDuration: 0.5
   groundTriggerObject: {fileID: 1643273678250130634}
-  astralProjectionPrefabs: {fileID: 2373505785327417506, guid: d211f52b0257f20458d939453737bc07,
-    type: 3}
 --- !u!50 &1643273678153169583
 Rigidbody2D:
   serializedVersion: 4

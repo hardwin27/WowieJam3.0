@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Human : MonoBehaviour
+public class Human : Body
 {
-    [SerializeField]
-    bool isControlled;
-
     [SerializeField]
     float moveSpeed;
     float moveDirection;
@@ -22,15 +19,9 @@ public class Human : MonoBehaviour
     GameObject groundTriggerObject;
     GroundTrigger groundTrigger;
 
-    Rigidbody2D body;
-    
-    [SerializeField]
-    GameObject astralProjectionPrefabs;
-
-
-    void Start()
+    protected override void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        base.Start();
         groundTrigger = groundTriggerObject.GetComponent<GroundTrigger>();
         enabled = isControlled;
     }
@@ -78,11 +69,17 @@ public class Human : MonoBehaviour
         body.velocity = new Vector2(moveDirection * moveSpeed, body.velocity.y);  
     }
 
-    void GoAstral()
+    protected override void GoAstral()
     {
-        GameObject astralProjection = Instantiate(astralProjectionPrefabs, new Vector3(transform.position.x, transform.position.y + 1.0f, 0.0f), Quaternion.identity);
-        astralProjection.transform.parent = null;
-
-        enabled = false;
+        base.GoAstral();
     }
+
+    // protected override void SetIsAlive()
+    // {
+    //     base.SetIsAlive();
+    // }
+    // protected override bool GetIsAlive()
+    // {
+    //     return base.SetIsAlive();
+    // }
 }
