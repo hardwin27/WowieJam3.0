@@ -10,18 +10,17 @@ public class AstralProjection : MonoBehaviour
 
     Rigidbody2D body;
 
-    // Camera camera;
-
     InteractionArea interactionArea;
     GameObject objectBody;
+
+    MainCamera camera;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         interactionArea = transform.GetChild(0).GetComponent<InteractionArea>();
-        // camera.enabled = true;
-        // camera = GetComponent<Camera>();
-        // camera.enabled = true;
+        camera = transform.parent.Find("MainCamera").GetComponent<MainCamera>();
+        camera.SetPlayerTransform(transform);
     }
 
     void Update()
@@ -32,6 +31,15 @@ public class AstralProjection : MonoBehaviour
         }
         
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+
+        if (moveDirection.x > 0)
+        {
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveDirection.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     void FixedUpdate()
@@ -47,6 +55,7 @@ public class AstralProjection : MonoBehaviour
             if (objectBody.GetComponent<Body>().GetIsAlive())
             {
                 objectBody.GetComponent<Body>().enabled = true;
+                camera.SetPlayerTransform(objectBody.transform);
                 Destroy(gameObject);
             }
         }

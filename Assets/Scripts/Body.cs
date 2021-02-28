@@ -10,8 +10,7 @@ public class Body : MonoBehaviour
 
     protected Rigidbody2D body;
 
-    // [SerializeField]
-    // Camera camera;
+    MainCamera camera;
 
     [SerializeField]
     protected GameObject astralProjectionPrefabs;
@@ -24,6 +23,11 @@ public class Body : MonoBehaviour
         enabled = isControlled;
         // camera.enabled = isControlled;
         animator = GetComponent<Animator>();
+        camera = transform.parent.Find("MainCamera").GetComponent<MainCamera>();
+        if (isControlled)
+        {
+            camera.SetPlayerTransform(transform);
+        }
     }
 
     protected virtual void GoAstral()
@@ -31,9 +35,10 @@ public class Body : MonoBehaviour
         // camera.enabled = false;
 
         GameObject astralProjection = Instantiate(astralProjectionPrefabs, new Vector3(transform.position.x, transform.position.y + 1.0f, 0.0f), Quaternion.identity);
-        astralProjection.transform.parent = null;
+        astralProjection.transform.parent = transform.parent;
         
         enabled = false;
+        animator.SetFloat("Speed", 0.0f);
     }
 
     public void Dead()
