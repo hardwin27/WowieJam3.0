@@ -18,6 +18,8 @@ public class Gorilla : Body
     [SerializeField]
     GameObject groundTriggerObject;
     GroundTrigger groundTrigger;
+    [SerializeField]
+    InteractionArea punchArea;
 
     protected override void Start()
     {
@@ -30,7 +32,7 @@ public class Gorilla : Body
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            GoAstral();
+            Punch();
         }
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
@@ -42,7 +44,17 @@ public class Gorilla : Body
             jumpPressed = false;
         }
 
-        moveDirection = Input.GetAxis("Horizontal");
+        moveDirection = Input.GetAxisRaw("Horizontal");
+
+        if (moveDirection > 0)
+        {
+            transform.localScale = new Vector3(8f, transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveDirection < 0)
+        {
+            transform.localScale = new Vector3(-8f, transform.localScale.y, transform.localScale.z);
+        }
+        
     }
 
     void FixedUpdate()
@@ -74,12 +86,12 @@ public class Gorilla : Body
         base.GoAstral();
     }
 
-    // protected override void SetIsAlive()
-    // {
-    //     base.SetIsAlive();
-    // }
-    // protected override bool GetIsAlive()
-    // {
-    //     return base.SetIsAlive();
-    // }
+    void Punch()
+    {
+        GameObject punchedObject = punchArea.GetBody();
+        if (punchedObject.layer == 13)
+        {
+            Destroy(punchedObject);
+        }
+    }
 }

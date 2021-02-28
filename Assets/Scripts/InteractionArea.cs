@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
-    public GameObject bodyObject;
+    GameObject bodyObject;
     void OnTriggerEnter2D(Collider2D other)
     {
         bodyObject = other.gameObject;

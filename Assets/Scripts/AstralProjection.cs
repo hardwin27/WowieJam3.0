@@ -37,7 +37,7 @@ public class AstralProjection : MonoBehaviour
 
     void InfestBody()
     {
-        objectBody = interactionArea.bodyObject;
+        objectBody = interactionArea.GetBody();
         if (objectBody != null)
         {
             if (objectBody.GetComponent<Body>().GetIsAlive())

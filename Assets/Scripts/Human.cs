@@ -47,6 +47,13 @@ public class Human : Body
 
     void FixedUpdate()
     {
+        if (jumpPressed)
+        {
+            if (jumpTimer > 0)
+            {
+                body.velocity = new Vector2(body.velocity.x, jumpVelocity);
+            }
+        }
         if (groundTrigger.isGrounded)
         {
             jumpTimer = cayoteJumpDuration;
@@ -56,13 +63,6 @@ public class Human : Body
             if (jumpTimer >= 0)
             {
                 jumpTimer -= Time.fixedDeltaTime;
-            }
-        }
-        if (jumpPressed)
-        {
-            if (jumpTimer > 0)
-            {
-                body.velocity = new Vector2(body.velocity.x, jumpVelocity);
             }
         }
 
