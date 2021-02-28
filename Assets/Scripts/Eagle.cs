@@ -11,7 +11,6 @@ public class Eagle : Body
     protected override void Start()
     {
         base.Start();
-        enabled = isControlled;
     }
 
     void Update()

@@ -23,7 +23,6 @@ public class Human : Body
     {
         base.Start();
         groundTrigger = groundTriggerObject.GetComponent<GroundTrigger>();
-        enabled = isControlled;
     }
 
     void Update()
@@ -43,6 +42,17 @@ public class Human : Body
         }
 
         moveDirection = Input.GetAxis("Horizontal");
+
+        if (moveDirection > 0)
+        {
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveDirection < 0)
+        {
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+        }
+
+        animator.SetFloat("Speed", Mathf.Abs(moveDirection));
     }
 
     void FixedUpdate()

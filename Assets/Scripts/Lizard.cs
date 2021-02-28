@@ -23,7 +23,6 @@ public class Lizard : Body
     {
         base.Start();
         groundTrigger = groundTriggerObject.GetComponent<GroundTrigger>();
-        enabled = isControlled;
     }
 
     void Update()

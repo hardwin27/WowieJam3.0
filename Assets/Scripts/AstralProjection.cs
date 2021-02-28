@@ -10,7 +10,8 @@ public class AstralProjection : MonoBehaviour
 
     Rigidbody2D body;
 
-    // [SerializeField]
+    // Camera camera;
+
     InteractionArea interactionArea;
     GameObject objectBody;
 
@@ -18,6 +19,9 @@ public class AstralProjection : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         interactionArea = transform.GetChild(0).GetComponent<InteractionArea>();
+        // camera.enabled = true;
+        // camera = GetComponent<Camera>();
+        // camera.enabled = true;
     }
 
     void Update()

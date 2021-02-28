@@ -21,18 +21,19 @@ public class Gorilla : Body
     [SerializeField]
     InteractionArea punchArea;
 
+    bool isOnAction = false;
+
     protected override void Start()
     {
         base.Start();
         groundTrigger = groundTriggerObject.GetComponent<GroundTrigger>();
-        enabled = isControlled;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Punch();
+            StartCoroutine(Punch());
         }
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
@@ -44,16 +45,25 @@ public class Gorilla : Body
             jumpPressed = false;
         }
 
-        moveDirection = Input.GetAxisRaw("Horizontal");
+        if (isOnAction)
+        {
+            moveDirection = 0.0f;
+        }
+        else 
+        {
+            moveDirection = Input.GetAxisRaw("Horizontal");
+        }
 
         if (moveDirection > 0)
         {
-            transform.localScale = new Vector3(8f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
         }
         else if (moveDirection < 0)
         {
-            transform.localScale = new Vector3(-8f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(moveDirection));
         
     }
 
@@ -86,12 +96,21 @@ public class Gorilla : Body
         base.GoAstral();
     }
 
-    void Punch()
+    IEnumerator Punch()
     {
+        isOnAction = true;
+        animator.SetBool("IsPunching", isOnAction);
+        yield return new WaitForSeconds(0.5f);
         GameObject punchedObject = punchArea.GetBody();
-        if (punchedObject.layer == 13)
+        if (punchedObject != null)
         {
-            Destroy(punchedObject);
+            if (punchedObject.layer == 13)
+            {
+                Destroy(punchedObject);
+            }
         }
+        
+        isOnAction = false;
+        animator.SetBool("IsPunching", isOnAction);
     }
 }
