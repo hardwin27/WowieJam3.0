@@ -34,11 +34,11 @@ public class Body : MonoBehaviour
     {
         // camera.enabled = false;
 
-        GameObject astralProjection = Instantiate(astralProjectionPrefabs, new Vector3(transform.position.x, transform.position.y + 1.0f, 0.0f), Quaternion.identity);
+        GameObject astralProjection = Instantiate(astralProjectionPrefabs, transform.position, Quaternion.identity);
         astralProjection.transform.parent = transform.parent;
-        
         enabled = false;
-        animator.SetFloat("Speed", 0.0f);
+        // animator.SetFloat("Speed", 0.0f);
+        
     }
 
     public void Dead()

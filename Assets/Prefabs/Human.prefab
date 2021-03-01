@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1643273678153169582}
   - component: {fileID: 5994364941883889781}
   - component: {fileID: 8613059896412817826}
+  - component: {fileID: 271111809}
   m_Layer: 8
   m_Name: Human
   m_TagString: Untagged
@@ -48,12 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbaa2cdf8529d4db448a47c24d768d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlled: 0
+  isControlled: 1
   astralProjectionPrefabs: {fileID: 2373505785327417506, guid: d211f52b0257f20458d939453737bc07,
     type: 3}
   moveSpeed: 5
-  jumpVelocity: 3
-  cayoteJumpDuration: 0.5
+  jumpVelocity: 4
+  cayoteJumpDuration: 0.25
   groundTriggerObject: {fileID: 1643273678250130634}
 --- !u!50 &1643273678153169583
 Rigidbody2D:
@@ -71,7 +72,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5890ec2616fe46f4da2d39c2e6dec79e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -172,6 +173,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &271111809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643273678153169569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.26301813, y: -0.3095212, z: 0}
+  - {x: -0.20049953, y: -0.41048503, z: 0}
+  - {x: 0.29802513, y: -0.40676475, z: 0}
+  - {x: 0.22209454, y: -0.30208063, z: 0}
+  - {x: 0.39475393, y: -0.28027344, z: 0}
+  - {x: 0.26082182, y: 0.032234907, z: 0}
+  - {x: 0.35755062, y: 0.17732787, z: 0}
+  - {x: 0.3240676, y: 0.28521776, z: 0}
+  - {x: 0.23325539, y: 0.41369057, z: 0}
+  - {x: -0.17817783, y: 0.4117092, z: 0}
+  - {x: -0.28161907, y: 0.32812297, z: 0}
+  - {x: -0.226542, y: 0.043395877, z: 0}
+  - {x: -0.37163544, y: -0.16866326, z: 0}
+  - {x: -0.35303354, y: -0.31375635, z: 0}
+  m_ShapePathHash: -11529891
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -13700
 --- !u!1 &1643273678250130634
 GameObject:
   m_ObjectHideFlags: 0

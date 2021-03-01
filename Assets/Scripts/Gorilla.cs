@@ -104,6 +104,7 @@ public class Gorilla : Body
         GameObject punchedObject = punchArea.GetBody();
         if (punchedObject != null)
         {
+            print(punchedObject);
             if (punchedObject.layer == 13)
             {
                 Destroy(punchedObject);
