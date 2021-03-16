@@ -77,6 +77,11 @@ public class Lizard : Body
         body.velocity = new Vector2(moveDirection * moveSpeed, body.velocity.y);  
     }
 
+    public void stopMoving() {
+        body.velocity = new Vector2(0,0);  
+        animator.SetFloat("Speed", 0);
+    }
+
     protected override void GoAstral()
     {
         base.GoAstral();

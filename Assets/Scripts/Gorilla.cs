@@ -96,6 +96,11 @@ public class Gorilla : Body
         base.GoAstral();
     }
 
+    public void stopMoving() {
+        body.velocity = new Vector2(0,0);  
+        animator.SetFloat("Speed", 0);
+    }
+
     IEnumerator Punch()
     {
         isOnAction = true;

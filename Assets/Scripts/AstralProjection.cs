@@ -20,6 +20,7 @@ public class AstralProjection : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         interactionArea = transform.GetChild(0).GetComponent<InteractionArea>();
         camera = transform.parent.Find("MainCamera").GetComponent<MainCamera>();
+        camera.playerTransform.gameObject.SendMessage("stopMoving");
         camera.SetPlayerTransform(transform);
     }
 

@@ -34,6 +34,10 @@ public class Eagle : Body
         base.GoAstral();
     }
 
+    public void stopMoving() {
+        body.velocity = new Vector2(0,0);  
+    }
+
     // protected override void SetIsAlive()
     // {
     //     base.SetIsAlive();

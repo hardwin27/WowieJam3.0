@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    Transform playerTransform;
+    public Transform playerTransform;
 
     void Update()
     {
