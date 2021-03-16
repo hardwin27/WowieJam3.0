@@ -36,7 +36,7 @@ public class Gorilla : Body
             StartCoroutine(Punch());
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
         {
             jumpPressed = true;
         }
