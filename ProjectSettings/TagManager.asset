@@ -13,14 +13,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Body
+  - Spirit
+  - Ground
+  - Obstacle
+  - GroundTrigger
+  - Breakable
+  - InteractionArea
+  - ThreeForPlatform
   - 
   - 
   - 
