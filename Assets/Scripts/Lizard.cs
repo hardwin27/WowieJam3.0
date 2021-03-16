@@ -45,11 +45,11 @@ public class Lizard : Body
 
         if (moveDirection > 0)
         {
-            transform.localScale = new Vector3(8f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
         }
         else if (moveDirection < 0)
         {
-            transform.localScale = new Vector3(-8f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
         }
     }
 
